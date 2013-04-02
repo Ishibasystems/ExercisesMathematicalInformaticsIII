@@ -1,0 +1,44 @@
+/* 数理情報学演習III H24_05_15_4.c */
+/* 演習課題その4 Kadai0504 */
+/* 2012.05.15, 10RU004, 石橋祥太 */
+
+onexit*endof
+
+#module
+
+#defcfunc search int n, var a, str key
+	sdim hoge,32000
+	repeat n
+		noteget hoge,cnt
+		if int(hoge) = key : return 1
+	loop
+	return 0
+
+#global
+
+	notesel a
+	sdim key,32000
+	sdim b,32000
+	
+	mes"データを入力してください。"
+	mesbox a,640,300
+	
+	mes"検索するデータを入力してください。"
+	input key,320,30
+
+	button"検索",*start
+
+	mes"結果"
+	input b,320,30
+
+	stop
+
+*start
+
+	notesel a
+	if search(notemax, a, key) : objprm 3,"ありました。" : else : objprm 3,"ありませんでした。"
+
+	stop
+
+*endof
+	end
